@@ -7,6 +7,7 @@ var path = require('path');
 var config = require('./config');
 var setupController = require('./controllers/setupController');
 var apiController = require('./controllers/apiController');
+var uploadController = require('./controllers/fileuploadController');
 
 var port = process.env.PORT || 3000;
 
@@ -26,6 +27,7 @@ app.set('view engine', 'ejs');
 mongoose.connect(config.getDbConnectionString());
 setupController(app);
 apiController(app);
+uploadController(app);
 
 app.listen(port);
 console.log('listening on port: ', port);
